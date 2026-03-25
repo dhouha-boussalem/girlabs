@@ -1,6 +1,6 @@
-# Girlabs 💜
+# DoudouFinds 💜
 
-**Girlabs** is a deal-aggregation platform oriented for girls — curating the best discounts across three categories:
+**DoudouFinds** is a deal-aggregation platform curating the best discounts across three categories:
 
 | Category | Description |
 |----------|-------------|

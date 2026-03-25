@@ -55,7 +55,7 @@ export default function Home() {
       <div className="bg-gradient-to-br from-pink-500 via-purple-500 to-rose-400 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
-            Girl<span className="text-yellow-300">abs</span> 💜
+            Doudou<span className="text-yellow-300">Finds</span> 💜
           </h1>
           <p className="text-xl md:text-2xl font-light mb-2 opacity-90">
             The best deals for beauty, fashion & home
@@ -145,10 +145,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-white border-t border-pink-100 py-8 text-center text-sm text-gray-400">
         <p className="font-semibold text-pink-500 text-lg mb-1">
-          Girlabs 💜
+          DoudouFinds 💜
         </p>
         <p>The best deals curated for you — beauty, fashion &amp; home.</p>
-        <p className="mt-2 text-xs">© 2026 Girlabs. All rights reserved.</p>
+        <p className="mt-2 text-xs">© 2026 DoudouFinds. All rights reserved.</p>
       </footer>
     </div>
   );

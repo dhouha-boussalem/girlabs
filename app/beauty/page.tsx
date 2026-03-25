@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import DealCard from "../components/DealCard";
 
 export const metadata = {
-  title: "Beauty Deals – Girlabs",
+  title: "Beauty Deals – DoudouFinds",
   description: "Best deals on skincare, makeup, haircare and more.",
 };
 

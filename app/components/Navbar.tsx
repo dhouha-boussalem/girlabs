@@ -18,8 +18,8 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-pink-500">Girl</span>
-          <span className="text-2xl font-bold text-purple-600">abs</span>
+          <span className="text-2xl font-bold text-pink-500">Doudou</span>
+          <span className="text-2xl font-bold text-purple-600">Finds</span>
           <span className="text-xl ml-1">💜</span>
         </Link>
 
