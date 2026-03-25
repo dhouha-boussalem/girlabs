@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Girlabs – Beauty, Fashion & Home Deals",
+  title: "DoudouFinds – Beauty, Fashion & Home Deals",
   description:
     "The best curated deals on beauty, fashion and home products, just for you.",
 };
