@@ -1,5 +1,6 @@
 import type { Deal } from "../data/deals";
 import Link from "next/link";
+import VoteButton from "./VoteButton";
 
 interface DealCardProps {
   deal: Deal;
@@ -84,16 +85,7 @@ export default function DealCard({ deal }: DealCardProps) {
         {/* Footer */}
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
           <span className="text-xs text-gray-400">{deal.postedAt}</span>
-          <button className="flex items-center gap-1 text-xs font-medium text-pink-500 hover:text-pink-700 transition-colors">
-            <svg
-              className="w-3.5 h-3.5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M7 11l5-5 5 5H14v4h-4v-4H7z" />
-            </svg>
-            {deal.votes}
-          </button>
+          <VoteButton dealId={deal.id} initialVotes={deal.votes} />
         </div>
       </div>
     </div>
