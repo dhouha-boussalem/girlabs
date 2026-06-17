@@ -1,4 +1,4 @@
-import { getCategoryDeals } from "../data/deals";
+import { getCategoryDealsFromDB } from "@/lib/deals";
 import Navbar from "../components/Navbar";
 import DealCard from "../components/DealCard";
 
@@ -7,8 +7,8 @@ export const metadata = {
   description: "Best deals on home décor, kitchen, bedding and appliances.",
 };
 
-export default function HomeDecorPage() {
-  const homeDeals = getCategoryDeals("home");
+export default async function HomeDecorPage() {
+  const homeDeals = await getCategoryDealsFromDB("home");
 
   return (
     <div className="min-h-screen bg-gray-50">

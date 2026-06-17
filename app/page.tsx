@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { deals, getCategoryDeals } from "./data/deals";
+import { getCategoryDealsFromDB } from "@/lib/deals";
 import Navbar from "./components/Navbar";
 import CategorySection from "./components/CategorySection";
 
 const stats = [
-  { label: "Active Deals", value: deals.length.toString() },
+  { label: "Active Deals", value: "18" },
   { label: "Categories", value: "3" },
   { label: "Savings Today", value: "$4,200+" },
 ];
@@ -42,10 +42,12 @@ const categories = [
   },
 ];
 
-export default function Home() {
-  const beautyDeals = getCategoryDeals("beauty").slice(0, 3);
-  const fashionDeals = getCategoryDeals("fashion").slice(0, 3);
-  const homeDeals = getCategoryDeals("home").slice(0, 3);
+export default async function Home() {
+  const [beautyDeals, fashionDeals, homeDeals] = await Promise.all([
+    getCategoryDealsFromDB("beauty"),
+    getCategoryDealsFromDB("fashion"),
+    getCategoryDealsFromDB("home"),
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -120,7 +122,7 @@ export default function Home() {
           title="Beauty"
           emoji="💄"
           category="beauty"
-          deals={beautyDeals}
+          deals={beautyDeals.slice(0, 3)}
           href="/beauty"
           accentClass="text-pink-600"
         />
@@ -128,7 +130,7 @@ export default function Home() {
           title="Fashion"
           emoji="👗"
           category="fashion"
-          deals={fashionDeals}
+          deals={fashionDeals.slice(0, 3)}
           href="/fashion"
           accentClass="text-purple-600"
         />
@@ -136,7 +138,7 @@ export default function Home() {
           title="Home"
           emoji="🏠"
           category="home"
-          deals={homeDeals}
+          deals={homeDeals.slice(0, 3)}
           href="/home-decor"
           accentClass="text-rose-600"
         />
