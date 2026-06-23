@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
+import type { Database } from "./database.types";
 
-let _client: ReturnType<typeof createClient> | null = null;
+let _client: ReturnType<typeof createClient<Database>> | null = null;
 
 export function getSupabaseClient() {
   if (_client) return _client;
@@ -11,6 +12,6 @@ export function getSupabaseClient() {
   // Guard against placeholder values left in the example env file
   if (!url || !key || key.startsWith("<")) return null;
 
-  _client = createClient(url, key);
+  _client = createClient<Database>(url, key);
   return _client;
 }
