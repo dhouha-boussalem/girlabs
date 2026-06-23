@@ -41,7 +41,27 @@ BEGIN
 END;
 $$;
 
--- 4. Seed – 18 deals initiaux
+-- 4. Table soumissions utilisateurs
+CREATE TABLE IF NOT EXISTS deal_submissions (
+  id             UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title          TEXT NOT NULL,
+  store          TEXT NOT NULL,
+  category       TEXT NOT NULL CHECK (category IN ('beauty', 'fashion', 'home')),
+  description    TEXT,
+  affiliate_url  TEXT NOT NULL,
+  original_price NUMERIC,
+  sale_price     NUMERIC,
+  submitted_by   TEXT,
+  status         TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+ALTER TABLE deal_submissions ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Soumissions publiques"
+  ON deal_submissions FOR INSERT WITH CHECK (true);
+
+-- 5. Seed – 18 deals initiaux
 INSERT INTO deals (id, title, store, category, original_price, sale_price, discount_percent, description, emoji, is_hot, posted_at, votes)
 VALUES
   -- Beauty
