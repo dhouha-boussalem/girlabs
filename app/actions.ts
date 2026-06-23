@@ -30,7 +30,9 @@ export async function submitDeal(formData: FormData): Promise<{
     return { success: false, message: "Titre, boutique et lien sont requis." };
   }
 
-  const { error } = await supabase.from("deal_submissions").insert(payload);
+  // Cast to any: Supabase client has no generated types for deal_submissions
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await (supabase as any).from("deal_submissions").insert(payload);
 
   if (error) {
     console.error("submitDeal error:", error);
