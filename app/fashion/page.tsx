@@ -1,4 +1,4 @@
-import { getCategoryDeals } from "../data/deals";
+import { getCategoryDealsFromDB } from "@/lib/deals";
 import Navbar from "../components/Navbar";
 import DealCard from "../components/DealCard";
 
@@ -7,8 +7,8 @@ export const metadata = {
   description: "Best deals on clothes, shoes, bags and accessories.",
 };
 
-export default function FashionPage() {
-  const fashionDeals = getCategoryDeals("fashion");
+export default async function FashionPage() {
+  const fashionDeals = await getCategoryDealsFromDB("fashion");
 
   return (
     <div className="min-h-screen bg-gray-50">

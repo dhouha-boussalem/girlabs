@@ -1,8 +1,9 @@
-import type { Deal } from "../data/deals";
+import type { Deal } from "@/app/data/deals";
 import Link from "next/link";
+import VoteButton from "./VoteButton";
 
 interface DealCardProps {
-  deal: Deal;
+  deal: Deal & { affiliateUrl?: string };
 }
 
 const categoryColors: Record<string, string> = {
@@ -84,16 +85,19 @@ export default function DealCard({ deal }: DealCardProps) {
         {/* Footer */}
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
           <span className="text-xs text-gray-400">{deal.postedAt}</span>
-          <button className="flex items-center gap-1 text-xs font-medium text-pink-500 hover:text-pink-700 transition-colors">
-            <svg
-              className="w-3.5 h-3.5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M7 11l5-5 5 5H14v4h-4v-4H7z" />
-            </svg>
-            {deal.votes}
-          </button>
+          <div className="flex items-center gap-3">
+            <VoteButton dealId={deal.id} initialVotes={deal.votes} />
+            {deal.affiliateUrl && (
+              <a
+                href={deal.affiliateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-1.5 rounded-lg hover:opacity-90 transition"
+              >
+                Voir le deal →
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
