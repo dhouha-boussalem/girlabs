@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/beauty", label: "💄 Beauty" },
   { href: "/fashion", label: "👗 Fashion" },
   { href: "/home-decor", label: "🏠 Home" },
+  { href: "/submit", label: "✨ Submit a deal" },
 ];
 
 export default function Navbar() {

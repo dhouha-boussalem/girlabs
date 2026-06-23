@@ -1,9 +1,9 @@
-import type { Deal } from "../data/deals";
+import type { Deal } from "@/app/data/deals";
 import Link from "next/link";
 import VoteButton from "./VoteButton";
 
 interface DealCardProps {
-  deal: Deal;
+  deal: Deal & { affiliateUrl?: string };
 }
 
 const categoryColors: Record<string, string> = {

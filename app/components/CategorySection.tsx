@@ -1,6 +1,6 @@
 import Link from "next/link";
 import DealCard from "./DealCard";
-import type { Deal, Category } from "../data/deals";
+import type { Deal, Category } from "@/app/data/deals";
 
 interface CategorySectionProps {
   title: string;
