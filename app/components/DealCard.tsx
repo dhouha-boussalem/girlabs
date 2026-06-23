@@ -85,19 +85,7 @@ export default function DealCard({ deal }: DealCardProps) {
         {/* Footer */}
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
           <span className="text-xs text-gray-400">{deal.postedAt}</span>
-          <div className="flex items-center gap-3">
-            <VoteButton dealId={deal.id} initialVotes={deal.votes} />
-            {deal.affiliateUrl && (
-              <a
-                href={deal.affiliateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-1.5 rounded-lg hover:opacity-90 transition"
-              >
-                Voir le deal →
-              </a>
-            )}
-          </div>
+          <VoteButton dealId={deal.id} initialVotes={deal.votes} />
         </div>
       </div>
     </div>

@@ -17,6 +17,8 @@ export async function POST(
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
 
+  // The Supabase client is untyped (no generated types), so we cast to call
+  // custom RPC functions without TypeScript errors.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { error } = await (supabase.rpc as any)("increment_votes", {
     deal_id: dealId,
@@ -26,6 +28,7 @@ export async function POST(
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  // Return updated vote count
   const { data, error: fetchError } = await supabase
     .from("deals")
     .select("votes")

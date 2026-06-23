@@ -16,10 +16,9 @@ interface SupabaseDeal {
   is_hot: boolean;
   posted_at: string;
   votes: number;
-  affiliate_url: string | null;
 }
 
-function toDeal(row: SupabaseDeal): Deal & { affiliateUrl?: string } {
+function toDeal(row: SupabaseDeal): Deal {
   return {
     id: row.id,
     title: row.title,
@@ -33,7 +32,6 @@ function toDeal(row: SupabaseDeal): Deal & { affiliateUrl?: string } {
     isHot: row.is_hot,
     postedAt: row.posted_at,
     votes: row.votes,
-    ...(row.affiliate_url ? { affiliateUrl: row.affiliate_url } : {}),
   };
 }
 
